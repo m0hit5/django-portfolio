@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .tech-logos-container {
+            overflow: hidden;
+            position: relative;
+            background-color: #f1f1f1;
+            padding: 20px 0;
+        }
+        .tech-logos {
+            display: flex;
+            width: 200%;
+            position: absolute;
+            animation: move-logos 15s linear infinite;
+        }
+        .tech-logos img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+        @keyframes move-logos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .info-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .info-section h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .info-section p {
+            font-size: 18px;
+        }
+        .projects-link, .contact-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .projects-link a, .contact-link a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .projects-link a:hover, .contact-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="tech-logos-container">
+        <div class="tech-logos">
+            <img src="{% static 'images/logo1.png' %}" alt="Tech Logo 1">
+            <img src="{% static 'images/logo2.png' %}" alt="Tech Logo 2">
+            <img src="{% static 'images/logo3.png' %}" alt="Tech Logo 3">
+            <!-- Add more logos as needed -->
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h2>About Me</h2>
+        <p>I have completed my Bachelor's degree from [Your University].</p>
+        <p>I'm interested in MERN Stack, Django, AI/ML, and software development.</p>
+    </div>
+    
+    <div class="projects-link">
+        <a href="{% url 'projects' %}">Check out a few of my projects</a>
+    </div>
+    
+    <div class="contact-link">
+        <a href="{% url 'contact' %}">Let's connect</a>
+    </div>
+    
+    {% include 'footer.html' %}
+</body>
+</html>

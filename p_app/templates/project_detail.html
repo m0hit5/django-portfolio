@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ project.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <h1>{{ project.title }}</h1>
+    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+    <p>{{ project.description }}</p>
+    <p><strong>Technologies Used:</strong> {{ project.technologies }}</p>
+    <p><a href="{{ project.github_link }}">GitHub Link</a></p>
+    {% if project.live_link %}
+    <p><a href="{{ project.live_link }}">Live Project Link</a></p>
+    {% endif %}
+    {% include 'footer.html' %}
+</body>
+</html>

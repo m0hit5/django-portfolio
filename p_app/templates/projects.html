@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <h1>Projects</h1>
+    <div class="project-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <a href="{% url 'project_detail' project.id %}">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description|truncatewords:20 }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>
